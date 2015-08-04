@@ -5,15 +5,23 @@ ruby '2.2.2'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3-ruby', '1.2.5', :group => :development
-group :development do
-	gem 'sqlite3'
-end
-#gem 'pg'
+################GEM CHANGED#############
+#group :development do
+#	gem 'sqlite3'
+#end
+##gem 'pg'
 #PG para producción
 
+#group :production do
+#  gem 'pg', '0.15.1'
+#  gem 'rails_12factor', '0.0.2'
+#end
+########################################
+
+gem 'sqlite3', :group => [:development, :test]
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
+	gem 'thin'
+	gem 'pg'
 end
 
 # Use SCSS for stylesheets
